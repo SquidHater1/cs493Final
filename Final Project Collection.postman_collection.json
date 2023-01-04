@@ -1,0 +1,809 @@
+{
+	"info": {
+		"_postman_id": "2aede0e7-6c3c-4768-94b2-ad2670439ed3",
+		"name": "Final Project Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create a new User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ryan Smith\",\r\n    \"email\": \"smithry9@oregonstate.edu\",\r\n    \"password\": \"hunter2\",\r\n    \"role\": \"student\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add second user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joe Graphics\",\r\n    \"email\": \"graphj@oregonstate.edu\",\r\n    \"password\": \"hunter2\",\r\n    \"role\": \"student\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new instructor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rob Hess\",\r\n    \"email\": \"hessro@oregonstate.edu\",\r\n    \"password\": \"hunter2\",\r\n    \"role\": \"instructor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"smithry9@oregonstate.edu\",\r\n    \"password\": \"hunter2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@oregonstate.edu\",\r\n    \"password\": \"hunter2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instructor Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hessro@oregonstate.edu\",\r\n    \"password\": \"hunter2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add an administrator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Admin\",\r\n    \"email\": \"testadmin@oregonstate.edu\",\r\n    \"password\": \"hunter2\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/629ea6dd0f605865faa5643c",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"629ea6dd0f605865faa5643c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Get Course List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\": \"CS\",\r\n    \"number\": \"492\",\r\n    \"title\": \"Mobile App Development\",\r\n    \"term\": \"wi22\",\r\n    \"instructorId\": \"629fc5dcf759e2b59fa378e0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update course by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjlmMzJmOWU5NDAwNDQ4NGRiMTFjNmIiLCJpYXQiOjE2NTQ2MDE5OTAsImV4cCI6MTY1NDY4ODM5MH0.MwdZEQfxj8lFQ6wkeC0OUVNbhdDkrfKGWLkenJ06nxU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\": \"CS\",\n    \"number\": \"493\",\n    \"title\": \"Cloud App Development\",\n    \"term\": \"sp22\",\n    \"instructorId\": \"629f20d61162cac405cdbcda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get students from course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course}}/students",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course}}",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add student to course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"add\":[\r\n        \"{{studentid1}}\"\r\n    ],\r\n    \"remove\":[\r\n\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course}}/students",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course}}",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get course roster",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course}}/roster",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course}}",
+								"roster"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get assignments list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course}}/assignments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course}}",
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignments",
+			"item": [
+				{
+					"name": "Add new assignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": \"{{course}}\",\n  \"title\": \"Assignment 3\",\n  \"points\": 100,\n  \"due\": \"2022-06-14T17:00:00-07:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/assignments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Submission Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": \"{{course}\",\n  \"title\": \"Assignment 3\",\n  \"points\": 100,\n  \"due\": \"2022-06-14T17:00:00-07:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/assignments/{{assignments}}/submissions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignments}}",
+								"submissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get assignment by ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/assignments/629ee698e81c39a32695c53f",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"629ee698e81c39a32695c53f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update assignment by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"courseId\": \"629ee68ee81c39a32695c53e\",\n    \"title\": \"Assignment 3\",\n    \"points\": 110,\n    \"due\": \"2022-07-14T17:00:00-07:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/assignments/629ee698e81c39a32695c53f",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"629ee698e81c39a32695c53f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove assignment by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/assignments/{{assignment}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignment}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get submissions list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/assignments/{{assignment}}/submissions?studentId={{studentid1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignment}}",
+								"submissions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "studentId",
+									"value": "{{studentid1}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new submission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "assignmentId",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "studentId",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "timestamp",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "grade",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/smr/CS-493/final-project-final-project-team-14/test.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/assignments/{{assignment}}/submissions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignment}}",
+								"submissions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "course",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "studentid1",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "studenttoken1",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "assignment",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

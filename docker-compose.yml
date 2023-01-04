@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
+    command: --quiet --logpath /dev/null
+
+  redis:
+    image: redis
+    environment:
+      REDIS_HOST: redis
+
+  db-init:
+    build: .
+    environment:
+      MONGO_HOST: db
+      MONGO_USER: ${MONGO_ROOT_USER}
+      MONGO_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_DB_NAME: ${MONGO_DB_NAME}
+      MONGO_AUTH_DB_NAME: admin
+      MONGO_CREATE_USER: ${MONGO_USER}
+      MONGO_CREATE_PASSWORD: ${MONGO_PASSWORD}
+    depends_on:
+      - db
+    restart: on-failure
+    command: npm run initdb --quiet --logpath /dev/null
+
+  api:
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      MONGO_HOST: db
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_DB_NAME: ${MONGO_DB_NAME}
+      REDIS_HOST: redis
+    depends_on:
+      - db
+      - db-init
+      - redis
+    restart: on-failure
